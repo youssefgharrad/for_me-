@@ -1,0 +1,23 @@
+<form method="post">
+  <h1>Ajouter une reponse</h1>
+  <table border="2">
+    <thead>
+      <tr>
+        <th>{{ form_label(form.disc, 'Disc') }}</th>
+        <th>{{ form_widget(form.disc) }}</th>
+      </tr>
+    </thead>
+    <br>
+    {{ form_widget(form._token) }}
+    <br>
+    <tbody>
+      
+      <tr style="direction: rtl;">
+        <td></td>
+        <td style="text-align:right;"><button type="submit" class="btn btn-primary" style="border-radius :20px ;background-color: #F8D706; color: white;">Ajouter</button></td>
+      </tr>
+
+
+    </tbody>
+  </table>
+</form>

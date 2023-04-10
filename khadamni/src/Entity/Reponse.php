@@ -18,9 +18,8 @@ class Reponse
      *
      * @ORM\Column(name="reclamation_id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $reclamationId;
+    public $reclamationId;
 
     /**
      * @var string
@@ -37,9 +36,12 @@ class Reponse
     private $dateRep;
 
     /**
-     * @var int
+     * @var \Utilisateur
      *
-     * @ORM\Column(name="utilisateur_id", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Utilisateur")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="utilisateur_id", referencedColumnName="id")
+     * })
      */
     private $utilisateurId;
 
@@ -56,6 +58,13 @@ class Reponse
     public function getReclamationId(): ?int
     {
         return $this->reclamationId;
+    }
+
+    public function setId(int $reclamationId): self
+    {
+        $this->reclamationId = $reclamationId;
+
+        return $this;
     }
 
     public function getDisc(): ?string
@@ -82,12 +91,12 @@ class Reponse
         return $this;
     }
 
-    public function getUtilisateurId(): ?int
+    public function getUtilisateurId(): ?Utilisateur
     {
         return $this->utilisateurId;
     }
 
-    public function setUtilisateurId(int $utilisateurId): self
+    public function setUtilisateurId(Utilisateur $utilisateurId): self
     {
         $this->utilisateurId = $utilisateurId;
 

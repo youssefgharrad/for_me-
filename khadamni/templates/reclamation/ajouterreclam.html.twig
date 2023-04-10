@@ -1,0 +1,32 @@
+<form method="post">
+  <h1>Ajouter une reclamation</h1>
+  <table border="2">
+    <thead>
+      <tr>
+        <th>{{ form_label(form.reclamationTitre, 'Titre') }}</th>
+        <th>{{ form_widget(form.reclamationTitre) }}</th>
+      </tr>
+    </thead>
+    <br>
+    {{ form_widget(form._token) }}
+    <br>
+    <tbody>
+      <tr>
+        <th>{{ form_label(form.reclamationSubject, 'Contexte') }}</th>
+        <td>{{ form_widget(form.reclamationSubject, {'attr': {'class': 'form-control'}}) }}</td>
+      </tr>
+      <tr style="direction: rtl;">
+        <td></td>
+        <td style="text-align:right;"><button type="submit" class="btn btn-primary" style="border-radius :20px ;background-color: #F8D706; color: white;">Ajouter</button></td>
+      </tr>
+      <tr>
+        <td>user</td>
+        <td>{{ form_row(form['utilisateur']) }}</td>
+      </tr>
+      <tr>
+        <td>freelancer</td>
+        <td>{{ form_row(form['freelancer']) }}</td>
+      </tr>
+    </tbody>
+  </table>
+</form>

@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+  <style>
+    .container {
+      display: flex;
+    }
+
+    .sidebar {
+      width: 25%;
+      background-color: lightgray;
+      padding: 10px;
+    }
+
+    .main-content {
+      width: 75%;
+      padding: 10px;
+    }
+
+    .content.hidden {
+      display: none;
+    }
+  </style>
+
+  <head>
+    <title>Two-Column Layout Example</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="sidebar" >
+      <h4>Profile </h4>
+        <button onclick="displayContent('content1')">Button 1</button> <hr>
+        <button id="my-button" onclick="displayContent('content2')" >Mes Reclamations</button><hr>
+        <button onclick="displayContent('content3')">Button 3</button><hr>
+      </div>
+      <div class="main-content">
+        <div id="content1" class="content hidden">
+          <h2>Content 1</h2>
+          <p>This is the content for Button 1.</p>
+        </div>
+        <div id="content2" class="content hidden">
+          <h2>Content 2</h2>
+        <div id="content"></div>
+          
+        </div>
+        <div id="content3" class="content hidden">
+          <h2>Content 3</h2>
+          <p>This is the content for Button 3.</p>
+        </div>
+      </div>
+    </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+      function displayContent(contentId) {
+        // Hide all content divs
+        var contentDivs = document.querySelectorAll('.main-content > div');
+        for (var i = 0; i < contentDivs.length; i++) {
+          contentDivs[i].classList.add('hidden');
+        }
+
+        // Show the selected content div
+        var selectedContent = document.getElementById(contentId);
+        selectedContent.classList.remove('hidden');
+      }
+
+
+      $(document).ready(function() {
+  $("#my-button").click(function() {
+    $.ajax({
+      url: "/reclamations/showreclam",
+      success: function(response) {
+        $("#content").html(response);
+      },
+      error: function(xhr, status, error) {
+        console.error(error);
+      }
+    });
+  });
+});
+
+    </script>
+  </body>
+</html>
+
+
