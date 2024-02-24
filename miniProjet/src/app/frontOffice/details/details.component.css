@@ -1,0 +1,13 @@
+.map-container {
+    height: 400px;
+  }
+
+
+  #leafletMap {
+    width: 100%;
+  }
+
+
+  .leaflet-default-icon-path { /* used only in path-guessing heuristic, see L.Icon.Default */
+	background-image: url("https://t4.ftcdn.net/jpg/05/29/74/05/360_F_529740584_1NUibxPP3I6u73H2TZJbpeYLzdSrBZFx.jpg");
+	}

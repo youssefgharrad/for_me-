@@ -1,0 +1,95 @@
+
+ <!-- Table Product -->
+ <div class="row">
+    <div class="col-12">
+      <div class="card card-default">
+        <div class="card-header">
+          <h1 style="padding-top: 16px">Universite List</h1>
+          <div class="dropdown">
+            <button mat-raised-button class="custom-btn btn-8"(click)="openDialogg()" >
+              <span><b>Ajouter</b></span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+
+          <div class="card-body">
+            <div class="form-group">
+              <label for="searchQuery">Search by Name :</label>
+              <input
+                type="text"
+                class="form-control"
+                id="searchQuery"
+                [(ngModel)]="searchQuery"
+                (input)="onSearch()"
+                placeholder="Type to search..."
+              />
+            </div>
+          <table id="productsTable" class="table table-hover table-product" style="width:100%">
+
+
+            <thead>
+              <tr>
+                <th></th>
+                <th>nom de l'université </th>
+                <th>adresse</th>
+                <th>Nom du foyer</th>
+
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr *ngFor="let universite of universites" >
+                <td class="py-0">
+                  <img src="/assets/back/images/ggg.png" alt="Product Image">
+                </td>
+
+                <td>{{universite.nomUniversite}}</td>
+                <td>{{universite.adresse}}</td>
+
+                <td *ngIf="universite">
+                  <div *ngFor="let foyer of foyers">
+                    <i *ngIf="foyer.universite && universite.idUniversite == foyer.universite.idUniversite">
+                      {{ foyer.nomFoyer }}
+                    </i>
+                  </div>
+                </td>
+
+                <td>
+                  <div class="dropdown">
+                    <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+
+                      <a class="dropdown-item" style="color: rgb(16, 132, 14) ;"  (click)="openDialogUpdate(universite.idUniversite)"><b>Modifier</b><span class="mdi mdi-grease-pencil" style="padding-left: 37%;"></span></a>
+                      <a class="dropdown-item" style="color: rgb(226, 20, 20) ;" (click)="deleteUniversite(universite.idUniversite)" ><b>Supprimer</b><span class="mdi mdi-delete" style="padding-left: 23%;"></span></a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+
+
+
+
+
+
+
+            </tbody>
+
+          </table>
+            <!-- Separated Rounded Pagination -->
+
+
+        </div>
+      </div>
+    </div>
+
+ </div>
+

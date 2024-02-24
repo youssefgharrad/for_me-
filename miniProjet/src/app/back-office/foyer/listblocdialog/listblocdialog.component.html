@@ -1,0 +1,14 @@
+<div *ngIf="foyer">
+  <h2 style="padding-left: 160px; color: #9E6DE0"><b><u>List of Blocs for {{ foyer.nomFoyer }}</u></b></h2>
+  <div *ngIf="blocs && blocs.length > 0; else noBlocs">
+    <ul>
+      <li *ngFor="let block of blocs">
+        <span><b> <b style="padding-right: 30px"><u>Nom du  Bloc  :</u></b> {{ block }}</b></span>
+      </li>
+    </ul>
+  </div>
+  <ng-template #noBlocs>
+    <p>No blocs available.</p>
+  </ng-template>
+  <button mat-button class="close-button"  (click)="onNoClick()">X</button>
+</div>

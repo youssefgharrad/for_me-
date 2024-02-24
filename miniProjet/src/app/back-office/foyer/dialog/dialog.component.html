@@ -1,0 +1,96 @@
+<div fxLayout="column" fxLayoutAlign="space-between start" fxFill>
+  <ng-container *ngIf="nouvelFoyer !== null; else ajouterFoyerTemplate">
+    <!-- Update Foyer -->
+    <div fxFlex="3.5rem" fxLayoutAlign="start center">
+      <span class="smr-caption--lg">
+        <h1><b><u style="padding-left: 220px; color: #6c43a1;">Modifier Foyer</u></b></h1>
+      </span>
+    </div>
+
+    <div fxFlex="auto" fxFlexAlign="start" fxFill>
+      <br>
+      <br>
+      <form (ngSubmit)="updateFoyer()" #updateFoyerForm="ngForm">
+        <div fxLayout="row" fxLayoutAlign="center center" fxFill>
+          <div fxFlex="70" fxFlex.xs="100">
+            <mat-form-field color="accent">
+              <input matInput placeholder="Nom de foyer" [(ngModel)]="nouvelFoyer.nomFoyer" name="nomFoyer" aria-label="Nom de foyer" required />
+              <mat-error *ngIf="updateFoyerForm.controls['nomFoyer'].hasError('required')" style="color:red;">Le nom du Foyer est requis.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field color="accent">
+              <input matInput placeholder="Capacité de foyer" [(ngModel)]="nouvelFoyer.capaciteFoyer" name="capaciteFoyer" aria-label="Capacité de foyer" required
+                     required pattern="{{ numberPattern }}" [min]="minCapacity" [max]="maxCapacity"/>
+              <mat-error *ngIf="capaciteBlocControl.hasError('required')" style="color:red;">La capacité du foyer est requise.</mat-error>
+              <mat-error *ngIf="capaciteBlocControl.hasError('pattern')" style="color:red;">La capacité doit être un nombre.</mat-error>
+              <mat-error *ngIf="capaciteBlocControl.hasError('min')" style="color:red;">La capacité doit être supérieure à 1.</mat-error>
+
+            </mat-form-field>
+
+
+
+            <mat-form-field color="accent">
+              <select style="padding-left: 300px" matNativeControl [(ngModel)]="nouvelFoyer.universite" name="universite" (ngModelChange)="onUniversiteSelected($event)">
+                <option value="" selected></option>
+                <option *ngFor="let universite of universites" [ngValue]="universite">{{ universite.nomUniversite }}</option>
+              </select>
+            </mat-form-field>
+
+            <div *ngIf="nouvelFoyer.universite">
+              <p>Université sélectionnée : {{ nouvelFoyer.universite.nomUniversite }}</p>
+            </div>
+
+
+
+
+            <div style="padding-left: 25%">
+              <button class="custom-btn btn-8" mat-button (click)="onNoClick()"><span><b>Annuler</b></span></button>
+              <button class="custom-btn btn-8" mat-stroked-button color="accent" type="submit" [disabled]="!updateFoyerForm.form.valid"><span><b>Modifier</b></span></button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </ng-container>
+
+  <ng-template #ajouterFoyerTemplate>
+    <!-- Ajouter Foyer -->
+    <div fxFlex="3.5rem" fxLayoutAlign="start center">
+      <span class="smr-caption--lg">
+        <h1><b><u style="padding-left: 220px; color: #6c43a1;">Ajouter Foyer</u></b></h1>
+      </span>
+    </div>
+
+    <div fxFlex="auto" fxFlexAlign="start" fxFill>
+      <br>
+      <br>
+      <form (ngSubmit)="ajouterFoyer()" #ajouterFoyerForm="ngForm">
+        <div fxLayout="row" fxLayoutAlign="center center" fxFill>
+          <div fxFlex="70" fxFlex.xs="100">
+            <mat-form-field color="accent">
+              <input matInput placeholder="Nom de foyer" [(ngModel)]="nouvelleFoyer.nomFoyer" name="nomFoyer" aria-label="Nom de foyer" required />
+              <mat-error *ngIf="ajouterFoyerForm.controls['nomFoyer'].hasError('required')" style="color:red;">Le nom du Foyer est requis.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field color="accent">
+              <input matInput placeholder="Capacité de foyer" [(ngModel)]="nouvelleFoyer.capaciteFoyer" name="capaciteFoyer" aria-label="Capacité de foyer" required />
+              <mat-error *ngIf="ajouterFoyerForm.controls['capaciteFoyer'].hasError('required')" style="color:red;">Le nom du Foyer est requis.</mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field color="accent" *ngIf="nouvelleFoyer?.universite">
+              <input matInput placeholder="Nom de l'université" [(ngModel)]="nouvelleFoyer.universite.nomUniversite" name="nomUniversite" aria-label="Nom de l'université" required />
+              <mat-error *ngIf="ajouterFoyerForm.controls['nomUniversite'].hasError('required')" style="color:red;">Le nom du universite est requis.</mat-error>
+
+            </mat-form-field>
+
+            <div style="padding-left: 25%">
+              <button class="custom-btn btn-8" mat-button (click)="onNoClick()"><span><b>Annuler</b></span></button>
+              <button class="custom-btn btn-8" mat-stroked-button color="accent" type="submit" [disabled]="!ajouterFoyerForm.form.valid"><span><b>Ajouter</b></span></button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+</div>

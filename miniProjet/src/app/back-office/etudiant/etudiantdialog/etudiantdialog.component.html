@@ -1,0 +1,60 @@
+<div class="etudiantForm-container">
+    <div class="etudiant-form-wrapper">
+      <h2>Ajouter un Étudiant</h2>
+      <form #etudiantForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="nomEt">Nom:</label>
+          <input type="text" id="nomEt" name="nomEt" [(ngModel)]="etudiant.nomEt" required minlength="2" maxlength="50">
+          <div *ngIf="etudiantForm.controls['nomEt']?.invalid && (etudiantForm.controls['nomEt']?.dirty || etudiantForm.controls['nomEt']?.touched)">
+            <small *ngIf="etudiantForm.controls['nomEt']?.errors?.['required']">Le nom est requis.</small>
+            <small *ngIf="etudiantForm.controls['nomEt']?.errors?.['minlength']">Le nom doit avoir au moins 2 caractères.</small>
+            <small *ngIf="etudiantForm.controls['nomEt']?.errors?.['maxlength']">Le nom ne peut pas dépasser 50 caractères.</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="prenom">Prénom:</label>
+          <input type="text" id="prenom" name="prenom" [(ngModel)]="etudiant.prenom" required minlength="2" maxlength="50">
+          <div *ngIf="etudiantForm.controls['prenom']?.invalid && (etudiantForm.controls['prenom']?.dirty || etudiantForm.controls['prenom']?.touched)">
+            <small *ngIf="etudiantForm.controls['prenom']?.errors?.['required']">Le prénom est requis.</small>
+            <small *ngIf="etudiantForm.controls['prenom']?.errors?.['minlength']">Le prénom doit avoir au moins 2 caractères.</small>
+            <small *ngIf="etudiantForm.controls['prenom']?.errors?.['maxlength']">Le prénom ne peut pas dépasser 50 caractères.</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="cin">CIN:</label>
+          <input type="number" id="cin" name="cin" [(ngModel)]="etudiant.cin" required minlength="8" maxlength="8">
+          <div *ngIf="etudiantForm.controls['cin']?.invalid && (etudiantForm.controls['cin']?.dirty || etudiantForm.controls['cin']?.touched)">
+            <small *ngIf="etudiantForm.controls['cin']?.errors?.['required']">Le CIN est requis.</small>
+            <small *ngIf="etudiantForm.controls['cin']?.errors?.['minlength']">Le CIN doit avoir exactement 8 caractères.</small>
+            <small *ngIf="etudiantForm.controls['cin']?.errors?.['maxlength']">Le CIN ne peut pas dépasser 8 caractères.</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="ecole">École:</label>
+          <input type="text" id="ecole" name="ecole" [(ngModel)]="etudiant.ecole" required minlength="3" maxlength="50">
+          <div *ngIf="etudiantForm.controls['ecole']?.invalid && (etudiantForm.controls['ecole']?.dirty || etudiantForm.controls['ecole']?.touched)">
+            <small *ngIf="etudiantForm.controls['ecole']?.errors?.['required']">L'école est requise.</small>
+            <small *ngIf="etudiantForm.controls['ecole']?.errors?.['minlength']">L'école doit avoir au moins 3 caractères.</small>
+            <small *ngIf="etudiantForm.controls['ecole']?.errors?.['maxlength']">L'école ne peut pas dépasser 50 caractères.</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="dateNaissance">Date de naissance:</label>
+          <input type="date" id="dateNaissance" name="dateNaissance" [(ngModel)]="etudiant.dateNaissance"/>
+            <button class="custom-btn btn-8" mat-stroked-button color="accent" type="submit">
+              <span><b>Ajouter</b></span>
+            </button>
+            <button class="custom-btn btn-8" mat-button (click)="goBack()">
+              <span><b>Annuler</b></span>
+            </button>
+
+
+        </div>
+      </form>
+    </div>
+</div>
+

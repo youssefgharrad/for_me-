@@ -1,0 +1,56 @@
+
+<div fxFlex="3.5rem" fxLayoutAlign="start center">
+      <span class="smr-caption--lg">
+        <h1><b><u style="padding-left: 230px;color:#6c43a1;">Ajouter chambre</u></b></h1>
+      </span>
+</div>
+
+<div fxFlex="auto" fxFlexAlign="start" fxFill>
+  <br>
+  <br>
+  <form #chambreForm="ngForm">
+    <div fxLayout="row" fxLayoutAlign="center center" fxFill>
+      <div fxFlex="70" fxFlex.xs="100">
+        <mat-form-field color="accent">
+          <input matInput name="nomUniversite" aria-label="Nom du universite" class="form-control rounded-0" #nomUniversite="ngModel" pattern="[a-zA-Z]*" minlength="3"  type="text" [(ngModel)]="chambre.numeroChambre"   placeholder="Entrer le nom" required>
+          <div *ngIf="chambreForm.controls['numeroChambre']?.invalid && (chambreForm.controls['numeroChambre']?.dirty || chambreForm.controls['numeroChambre']?.touched)">
+            <small *ngIf="chambreForm.controls['numeroChambre']?.errors?.['required']">Numéro de Chambre est requis.</small>
+            <small *ngIf="chambreForm.controls['numeroChambre']?.errors?.['minlength']">Numéro de Chambre doit avoir au moins 3 caractères.</small>
+            <small *ngIf="chambreForm.controls['numeroChambre']?.errors?.['maxlength']">Numéro de Chambre ne peut pas dépasser 10 caractères.</small>
+          </div>
+        </mat-form-field>
+
+
+
+
+        <div class="form-control rounded-0">
+          <label style="padding-left:280px" for="typeChambre">Type de Chambre</label>
+          <select type="text" id="typeChambre" name="typeChambre"  class="form-control rounded-0"[(ngModel)]="chambre.typeC" required>
+            <option value="SIMPLE">SIMPLE</option>
+            <option value="DOUBLE">DOUBLE</option>
+            <option value="TRIPLE">TRIPLE</option>
+          </select>
+        </div>
+
+        <br>
+        <br>
+
+        <div class="form-control rounded-0">
+          <label  style="padding-left:320px" for="idBloc">Bloc</label>
+
+          <select type="text" id="idBloc" name="nomBloc"  class="form-control rounded-0" [(ngModel)]="chambre.bloc.idBloc" >
+            <option *ngFor="let blocName of blocIds" [value]="blocName">{{ blocName }}</option>
+          </select></div>
+
+
+        <br>
+        <br>
+        <div style="padding-left: 25%">
+          <button class="custom-btn btn-8" mat-button (click)="onNoClick()"><span><b>Annuler</b></span></button>
+          <button class="custom-btn btn-8" mat-stroked-button color="accent" type="button" (click)="onSubmit()"><span><b>Ajouter</b></span></button>
+
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,86 @@
+
+<div class="row">
+  <div class="col-12">
+    <div class="card card-default">
+      <div class="card-header">
+        <h1 style="padding-top: 16px">Chambre List</h1>
+        <div class="dropdown">
+          <div>
+
+         <button mat-raised-button class="custom-btn btn-8"  (click)="openChambreFormDialog()">
+            <span><b>Ajouter</b></span>
+          </button>
+
+
+
+          </div>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <label>Search by Number :</label>
+
+        <input type="search" [(ngModel)]="searchtext" id="form1" class="form-control" placeholder="Search" aria-label="search" />
+
+        <table id="productsTable" class="table table-hover table-product" style="width:100%">
+
+          <thead>
+          <tr>
+            <th></th>
+            <th>Numero du Chambre</th>
+            <th>Type </th>
+            <th>Nom du bloc </th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <tr *ngFor="let chambre of chambres" >
+            <td class="py-0">
+              <img src="/assets/back/images/aa.avif" alt="Product Image">
+            </td>
+            <td>{{chambre.numeroChambre}}</td>
+            <td>{{chambre.typeC}}</td>
+
+            <td>
+              <div *ngIf="chambre.bloc">
+                <div *ngFor="let bloc of blocs">
+                  <i *ngIf="bloc.idBloc === chambre.bloc.idBloc">{{bloc.nomBloc}}</i>
+                </div>
+              </div>
+
+            </td>
+            <td>
+              <div class="dropdown">
+                <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+
+                  <a class="dropdown-item" style="color: rgb(16, 132, 14) ;" (click)="openChambrefmDialog()"><b>Modifier</b><span class="mdi mdi-grease-pencil" style="padding-left: 37%;"></span></a>
+                  <a class="dropdown-item" style="color: rgb(226, 20, 20) ;" (click)="deleteChambre(chambre.idChambre)" ><b>Supprimer</b><span class="mdi mdi-delete" style="padding-left: 23%;"></span></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+
+
+
+
+
+
+          </tbody>
+
+        </table>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+

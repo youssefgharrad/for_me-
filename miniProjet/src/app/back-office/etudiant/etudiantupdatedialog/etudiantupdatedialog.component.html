@@ -1,0 +1,28 @@
+<form  (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="nomEt">Nom:</label>
+    <input type="text" id="nomEt" name="nomEt" [(ngModel)]="etudiant.nomEt"  minlength="2" maxlength="50" formControlName="nomEt">
+  </div>
+
+  <div class="form-group">
+    <label for="prenom">Prénom:</label>
+    <input type="text" id="prenom" name="prenom" [(ngModel)]="etudiant.prenom" required minlength="2" maxlength="50" formControlName="prenom">
+  </div>
+
+  <div class="form-group">
+    <label for="cin">CIN:</label>
+    <input type="number" id="cin" name="cin" [(ngModel)]="etudiant.cin" required minlength="8" maxlength="8" formControlName="cin">
+  </div>
+
+  <div class="form-group">
+    <label for="ecole">École:</label>
+    <input type="text" id="ecole" name="ecole" [(ngModel)]="etudiant.ecole" required minlength="3" maxlength="50" formControlName="ecole">
+  </div>
+
+  <div class="form-group">
+    <label for="dateNaissance">Date de naissance:</label>
+    <input type="date" id="dateNaissance" name="dateNaissance" [(ngModel)]="etudiant.dateNaissance" formControlName="dateNaissance">
+  </div>
+
+  <button type="submit" >Modifier</button>
+</form>

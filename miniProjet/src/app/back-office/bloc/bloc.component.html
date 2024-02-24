@@ -1,0 +1,106 @@
+
+<!-- Table Product -->
+<div class="row" xmlns="http://www.w3.org/1999/html">
+  <div class="col-12">
+    <div class="card card-default">
+      <div class="card-header">
+        <h1 style="padding-top: 16px"><u>Bloc List</u></h1>
+          <button mat-raised-button class="custom-btn btn-8"(click)="openDialogg()" >
+            <span><b>Ajouter</b></span>
+          </button>
+      </div>
+
+      <div class="card-body">
+
+
+          <div class="form-group">
+            <input
+              style="
+  width: 84.8%;
+  height: calc(1.5em + 1.12rem + 2px);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  padding-left: 30px;
+  padding-right: 100px;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 1px solid #e5e9f2;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;"
+              type="text"
+              id="searchQuery"
+              [(ngModel)]="searchTerm" placeholder="Entrez le terme de recherche ......"
+            />
+                     <button class="custom-btn btn-8" (click)="rechercheBloc(searchTerm)"><span><b>Search</b></span></button>
+
+
+          </div>
+
+        <table id="productsTable" class="table table-hover table-product" style="width:100%">
+
+          <thead>
+          <tr>
+            <th></th>
+
+            <th>Nom du Bloc</th>
+            <th>Capacite du Bloc</th>
+            <th>nom du Foyer</th>
+
+          </tr>
+          </thead>
+          <tbody>
+
+          <tr *ngFor="let bloc of pagedBlocs" >
+            <td class="py-0">
+              <img src="/assets/back/images/fff.jpg" alt="Product Image">
+            </td>
+
+            <td>{{bloc.nomBloc}}</td>
+            <td>{{bloc.capaciteBloc}}</td>
+            <td>
+              <div *ngIf="bloc.foyer">
+                <div *ngFor="let foyer of foyers">
+                  <i *ngIf="foyer.idFoyer === bloc.foyer.idFoyer">{{foyer.nomFoyer}}</i>
+                </div>
+              </div>
+
+
+            <td>
+              <div class="dropdown">
+                <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+
+                  <a class="dropdown-item" style="color: rgb(16, 132, 14) ;" (click)="modifierDialogBloc(bloc)" ><b>Modifier</b><span class="mdi mdi-grease-pencil" style="padding-left: 37%;"></span></a>
+                  <a class="dropdown-item" style="color: rgb(226, 20, 20) ;" (click)="deleteBloc(bloc.idBloc)" ><b>Supprimer</b><span class="mdi mdi-delete" style="padding-left: 23%;"></span></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+
+
+
+
+
+
+          </tbody>
+
+        </table>
+        <!-- Separated Rounded Pagination -->
+
+        <mat-paginator   [length]="blocs.length" [pageSize]="pageSize" [pageIndex]="pageIndex" (page)="pageEvent($event)">
+        </mat-paginator>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+

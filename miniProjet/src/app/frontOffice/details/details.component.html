@@ -1,0 +1,106 @@
+
+<!--search overlay start-->
+
+<!--search overlay end-->
+
+<section class="single-block-wrapper bg-grey section-padding">
+
+        
+    <div class="row  align-items-center">
+        <div class="col-lg-6 col-md-10 col-sm-12 col-xs-12">
+            <div class="single-post">
+                  
+    
+    <h2 class="post-title mt-2">
+        University Details        </h2>
+
+    <div class="post-meta">
+        <span class="text-uppercase font-sm letter-spacing-1 mr-3">University Name: {{ universityDetails.nomUniversite }}</span>
+        <br>
+        <span class="text-uppercase font-sm letter-spacing-1 mr-4">University Address: {{ universityDetails.adresse }}</span>
+        <br>
+
+        <!-- <div *ngIf="universityDetails.foyer?.idFoyer"> -->
+        <!-- <span  class="text-uppercase font-sm letter-spacing-1"> Foyer associé :{{universityDetails.foyer}}</span> -->
+    <!-- </div> -->
+    <div *ngFor="let foyer of foyers">
+
+        <i  *ngIf="universityDetails.idUniversite==foyer.universite.idUniversite" class="text-muted letter-spacing text-uppercase font-sm">Foyer Associé :{{foyer.nomFoyer}} </i>
+        
+    
+        </div>
+      
+</div>
+    <div class="post-featured-image mt-5">
+        <img src="assets/front/images/news/details.jpg" class="img-fluid w-100" alt="featured-image">
+    </div>
+
+    
+
+</div>
+
+
+
+
+
+
+<!-- <div class="post-body">
+
+        
+    <div class="tags-share-box center-box d-flex text-center justify-content-between border-top border-bottom py-3">
+
+        <span class="single-comment-o"><i class="fa fa-comment-o"></i>0 comment</span>
+
+        <div class="post-share">
+            <span class="count-number-like">2</span>
+            <a class="penci-post-like single-like-button"><i class="ti-heart"></i></a>                    
+        </div>
+
+        <div class="list-posts-share">
+            <a target="_blank" rel="nofollow" href="#"><i class="ti-facebook"></i></a>
+            <a target="_blank" rel="nofollow" href="#"><i class="ti-twitter"></i></a>
+            <a target="_blank" rel="nofollow" href="#"><i class="ti-pinterest"></i></a>
+            <a target="_blank" rel="nofollow" href="#"><i class="ti-linkedin"></i></a>
+        </div>
+    </div>
+</div> -->
+</div>
+        
+            
+    
+<div class="col-6">
+
+
+
+<h2 class="post-title mt-2">
+    University Location        </h2>
+
+<div class="map-container" id="map"
+leaflet
+[leafletOptions]="options"
+(leafletMapReady)="onMapReady($event)"
+(leafletClick)="mapClicked($event)">
+</div>
+</div>
+
+    
+
+
+
+
+        </div>
+</section>
+<button class="btn btn-primary mt-4 al" (click)="showReservationComponent = !showReservationComponent">Réserver</button>
+
+<!-- Show your component when the variable is true -->
+<ng-container *ngIf="showReservationComponent">
+<app-reservation></app-reservation>
+</ng-container>
+
+
+
+
+
+
+
+

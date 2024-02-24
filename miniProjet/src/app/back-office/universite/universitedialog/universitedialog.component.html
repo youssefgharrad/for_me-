@@ -1,0 +1,57 @@
+<div fxFlex="3.5rem" fxLayoutAlign="start center">
+      <span class="smr-caption--lg">
+        <h1><b><u style="padding-left: 260px;color:#6c43a1;">Ajouter Universite</u></b></h1>
+      </span>
+</div>
+
+<div fxFlex="auto" fxFlexAlign="start" fxFill>
+  <br>
+  <br>
+<form #form="ngForm">
+  <div fxLayout="row" fxLayoutAlign="center center" fxFill>
+    <div fxFlex="70" fxFlex.xs="100">
+      <mat-form-field color="accent">
+        <input matInput name="nomUniversite" aria-label="Nom du universite" class="form-control rounded-0" #nomUniversite="ngModel" pattern="[a-zA-Z]*" minlength="3"  type="text" [(ngModel)]="universite.nomUniversite"   placeholder="Entrer le nom" required>
+        <div *ngIf="nomUniversite.touched && nomUniversite.invalid">
+          <div *ngIf="nomUniversite.errors['required']">
+            Le nom de l'université est obligatoire !
+          </div>
+          <div *ngIf="nomUniversite.errors['minlength']">
+            Nom de l'université contient au minimum
+            {{nomUniversite.errors['minlength']['requiredLength']}} caractères
+            alors que vous avez tapé
+            {{nomUniversite.errors['minlength']['actualLength']}} !
+          </div>
+          <div *ngIf="nomUniversite.errors['pattern']">
+            Le nom de l'université ne contient que des lettres !
+          </div>
+        </div>
+
+      </mat-form-field>
+      <mat-form-field color="accent">
+        <input  matInput name="adresse"   aria-label="address du universite" class="form-control rounded-0"  pattern="[a-zA-Z0-9]*" minlength="3" required type="text" [(ngModel)]="universite.adresse" #adresse="ngModel" placeholder="Adresse" required>
+        <div *ngIf="adresse.touched && adresse.invalid">
+          <div *ngIf="adresse.errors['required']">
+            L'adresse est obligatoire !
+          </div>
+          <div *ngIf="adresse.errors['minlength']">
+            L'adresse contient au minimum
+            {{adresse.errors['minlength']['requiredLength']}} caractères
+            alors que vous avez tapé
+            {{adresse.errors['minlength']['actualLength']}} !
+          </div>
+          <div *ngIf="adresse.errors['pattern']">
+            L'adresse ne contient que des lettres et des chiffres !
+          </div>
+        </div>
+
+      </mat-form-field>
+      <div style="padding-left: 25%">
+        <button class="custom-btn btn-8" mat-button (click)="onNoClick()"><span><b>Annuler</b></span></button>
+        <button class="custom-btn btn-8" mat-stroked-button color="accent" type="button" (click)="addUniversite()"><span><b>Ajouter</b></span></button>
+
+      </div>
+    </div>
+  </div>
+</form>
+</div>

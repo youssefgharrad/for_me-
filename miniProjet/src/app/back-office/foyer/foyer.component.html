@@ -1,0 +1,122 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card card-default">
+      <div class="card-header">
+
+        <h1 style="padding-top: 16px">Foyer List</h1>
+        <div class="dropdown">
+          <button mat-raised-button class="custom-btn btn-8" (click)="onStatistiqueButtonClick()">
+          <span><b>Statistiques</b></span>
+        </button>
+          <button class="custom-btn btn-8" (click)="toggleSearchSection()"> <span><b>Recherche</b></span></button>
+
+          <button mat-raised-button class="custom-btn btn-8" (click)="openDialog()">
+            <span><b>Ajouter</b></span>
+          </button>
+
+
+
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+
+
+
+        <div>
+          <div>
+            <ul class="notification-list">
+              <li *ngFor="let notification of notifications"><b>Dernières modifications :</b>{{ notification }}</li>
+            </ul>
+          </div>
+        </div>
+        <div *ngIf="selectedFoyer" class="selected-foyer-container" style="text-align: center">
+         <button class="close-btn"(click)="closeSelectedFoyer()">Fermer</button>
+          <h2>Selected Foyer:</h2>
+          <p>Nom du Foyer: {{ selectedFoyer.nomFoyer }}</p>
+          <p>Capacite du foyer: {{ selectedFoyer.capaciteFoyer }}</p>
+        </div>
+
+
+
+        <canvas id="myChart" #myChartCanvas width="100" height="50"></canvas>
+
+
+
+        <div class="card-body">
+
+            <div *ngIf="showSearchSection">
+              <div>
+                <label for="nomFoyer">Nom du Foyer:</label>
+                <input class="form-control" type="text" id="nomFoyer" [(ngModel)]="nomFoyer">
+
+                <label for="capaciteFoyer">Capacité du Foyer:</label>
+                <input class="form-control" type="number" id="capaciteFoyer" [(ngModel)]="capaciteFoyer">
+
+                <label for="nomUniversite">Nom de l'Université:</label>
+                <input class="form-control" type="text" id="nomUniversite" [(ngModel)]="nomUniversite">
+
+                <button class="custom-btn btn-8" (click)="searchFoyers()"><span><b>Recherche</b></span></button>
+              </div>
+            </div>
+
+
+        <table id="productsTable" class="table table-hover table-product" style="width:100%">
+
+          <thead>
+          <tr>
+            <th></th>
+            <th>Nom du Foyer</th>
+            <th>Capacite du foyer</th>
+            <th>Nom Universite</th>
+            <th>List Bloc</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <tr *ngFor="let foyer of pagedFoyer">
+            <td class="py-0">
+              <img src="/assets/back/images/gggggdjdjdk.png" alt="Product Image">
+            </td>
+
+            <td>{{foyer.nomFoyer}}</td>
+            <td [appCapacite]="foyer.capaciteFoyer">{{foyer.capaciteFoyer}}</td>
+            <td>
+              <div *ngIf="foyer.universite?.idUniversite">
+                {{ getUniversiteName(foyer.universite.idUniversite) }}
+              </div>
+            </td>
+            <td><button class="custom-btnn btn-1" (click)="listBlocDialog(foyer)">Voir</button></td>
+
+            <td>
+              <div class="dropdown">
+                <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" style="color: rgb(16, 132, 14);" (click)="modifierDialog(foyer)"><b>Modifier</b><span class="mdi mdi-grease-pencil" style="padding-left: 37%;"></span></a>
+                  <a class="dropdown-item" style="color: rgb(226, 20, 20);" (click)="deleteFoyer(foyer.idFoyer)"><b>Supprimer</b><span class="mdi mdi-delete" style="padding-left: 23%;"></span></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+        <!-- Separated Rounded Pagination -->
+        <mat-paginator [length]="foyers.length" [pageSize]="pageSize" [pageIndex]="pageIndex" (page)="pageEvent($event)">
+        </mat-paginator>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</div>

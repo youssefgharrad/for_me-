@@ -1,0 +1,35 @@
+<section class="section-padding" id="list">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+
+
+    <div class="col-lg-3 col-md-6" *ngFor="let universite of universites" >
+  <app-article [universite]="universite"></app-article>
+  
+        <!-- <article class="post-grid mb-5">
+            <a class="post-thumb mb-4 d-block" [routerLink]="['/front/list/details', universite.idUniversite]" >
+                <img src="assets/front/images/news/news-1.jpg" alt="" class="img-fluid w-100" >
+            </a>
+            <span class="cat-name text-color font-extra text-sm text-uppercase letter-spacing-1">{{universite.nomUniversite}}</span>
+            <h3 class="post-title mt-1"><a [routerLink]="['/front/list/details', universite.idUniversite]">{{universite.adresse}}</a></h3>
+            <div *ngFor="let foyer of foyers">
+
+              <i  *ngIf="universite.idUniversite==foyer.universite.idUniversite" class="text-muted letter-spacing text-uppercase font-sm">{{foyer.nomFoyer}}</i>
+              
+          
+              </div>
+            
+        </article> -->
+    </div>
+   
+</div>
+            </div>
+
+            <div  class="col-lg-12 ">
+            <router-outlet></router-outlet>
+        </div>
+        </div>
+    </div>
+</section>>

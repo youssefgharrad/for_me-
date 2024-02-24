@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MiniProjet</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  
+    <!-- THEME CSS
+	================================================== -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/front/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Themify -->
+    <link rel="stylesheet" href="assets/front/plugins/themify/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/front/plugins/slick-carousel/slick-theme.css">
+    <link rel="stylesheet" href="assets/front/plugins/slick-carousel/slick.css">
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" href="assets/front/plugins/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/front/plugins/owl-carousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/front/plugins/magnific-popup/magnific-popup.css">
+    <!-- manin stylesheet -->
+    <link rel="stylesheet" href="assets/front/css/style.css">
+
+
+
+
+
+
+     <!-- GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Roboto" rel="stylesheet">
+  <link href="assets/back/plugins/material/css/materialdesignicons.min.css" rel="stylesheet" />
+  <link href="assets/back/plugins/simplebar/simplebar.css" rel="stylesheet" />
+
+  <!-- PLUGINS CSS STYLE -->
+  <link href="assets/back/plugins/nprogress/nprogress.css" rel="stylesheet" />
+  
+  
+  
+  
+  <link href="assets/back/plugins/DataTables/DataTables-1.10.18/css/jquery.dataTables.min.css" rel="stylesheet" />
+  
+  
+  
+  <link href="assets/back/plugins/jvectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet" />
+  
+  
+  
+  <link href="assets/back/plugins/daterangepicker/daterangepicker.css" rel="stylesheet" />
+  
+  
+  
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  
+  
+  
+  <link href="assets/back/plugins/toaster/toastr.min.css" rel="stylesheet" />
+  
+  
+  <!-- MONO CSS -->
+  <link id="main-css-href" rel="stylesheet" href="assets/back/css/style.css" />
+
+  
+
+
+  <!-- FAVICON -->
+  <link href="assets/back/images/favicon.png" rel="shortcut icon" />
+
+
+
+
+
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="mat-typography">
+  <app-root></app-root>
+
+
+
+  <!-- THEME JAVASCRIPT FILES
+================================================== -->
+<!-- initialize jQuery Library -->
+<script src="assets/front/plugins/jquery/jquery.js"></script>
+<!-- Bootstrap jQuery -->
+<script src="assets/front/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/front/plugins/bootstrap/js/popper.min.js"></script>
+<!-- Owl caeousel -->
+<script src="assets/front/plugins/owl-carousel/owl.carousel.min.js"></script>
+<script src="assets/front/plugins/slick-carousel/slick.min.js"></script>
+<script src="assets/front/plugins/magnific-popup/magnific-popup.js"></script>
+<!-- Instagram Feed Js -->
+<script src="assets/front/plugins/instafeed-js/instafeed.min.js"></script>
+<!-- main js -->
+
+
+<script src="assets/front/js/custom.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+crossorigin=""/>
+ <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+
+
+
+     <script>
+
+
+      console.log("aaaa");
+      
+
+      
+      </script>
+
+<script src="assets/back/plugins/nprogress/nprogress.js"></script>
+<script src="assets/back/plugins/jquery/jquery.min.js"></script>
+                    <script src="assets/back/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+                    <script src="assets/back/plugins/simplebar/simplebar.min.js"></script>
+                    <script src="https://unpkg.com/hotkeys-js/dist/hotkeys.min.js"></script>
+
+                    
+                    
+                    <script src="assets/back/plugins/apexcharts/apexcharts.js"></script>
+                    
+                    
+                    
+                    <script src="assets/back/plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
+                    
+                    
+                    
+                    <script src="assets/back/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
+                    <script src="assets/back/plugins/jvectormap/jquery-jvectormap-world-mill.js"></script>
+                    <script src="assets/back/plugins/jvectormap/jquery-jvectormap-us-aea.js"></script>
+                    
+                    
+                    
+                    <script src="assets/back/plugins/daterangepicker/moment.min.js"></script>
+                    <script src="assets/back/plugins/daterangepicker/daterangepicker.js"></script>
+                    <script>
+                      jQuery(document).ready(function() {
+                        jQuery('input[name="dateRange"]').daterangepicker({
+                        autoUpdateInput: false,
+                        singleDatePicker: true,
+                        locale: {
+                          cancelLabel: 'Clear'
+                        }
+                      });
+                        jQuery('input[name="dateRange"]').on('apply.daterangepicker', function (ev, picker) {
+                          jQuery(this).val(picker.startDate.format('MM/DD/YYYY'));
+                        });
+                        jQuery('input[name="dateRange"]').on('cancel.daterangepicker', function (ev, picker) {
+                          jQuery(this).val('');
+                        });
+                      });
+                    </script>
+                    
+                    
+                    
+                    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+                    
+                    
+                    
+                    <script src="assets/back/plugins/toaster/toastr.min.js"></script>
+
+                    
+                    
+                    <script src="assets/back/js/mono.js"></script>
+                    <script src="assets/back/js/chart.js"></script>
+                    <script src="assets/back/js/map.js"></script>
+                    <script src="assets/back/js/custom.js"></script>
+
+                    
+</body>
+</html>

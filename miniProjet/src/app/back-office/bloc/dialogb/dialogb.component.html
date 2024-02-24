@@ -1,0 +1,93 @@
+<div fxLayout="column" fxLayoutAlign="space-between start" fxFill>
+  <ng-container *ngIf="nouBloc !== null; else addBloc">
+    <div fxFlex="3.5rem" fxLayoutAlign="start center">
+      <span class="smr-caption--lg">
+        <h1><b><u style="padding-left: 220px;color:#6c43a1;">Modifier Bloc</u></b></h1>
+      </span>
+    </div>
+
+    <div fxFlex="auto" fxFlexAlign="start" fxFill>
+      <br>
+      <br>
+      <form #modifierBlocForm="ngForm">
+        <div fxLayout="row" fxLayoutAlign="center center" fxFill>
+          <div fxFlex="70" fxFlex.xs="100">
+            <mat-form-field color="accent">
+              <input matInput placeholder="Nom du Bloc" [(ngModel)]="nouBloc.nomBloc" name="nomBloc" aria-label="Nom du Bloc" required />
+              <mat-error *ngIf="modifierBlocForm.controls['nomBloc'].hasError('required')" style="color:red;">Le nom du bloc est requis.</mat-error>
+            </mat-form-field>
+
+
+
+            <mat-form-field color="accent">
+              <input matInput placeholder="Capacité du Bloc" [(ngModel)]="nouBloc.capaciteBloc" name="capaciteBloc" aria-label="Capacité du Bloc"
+                     required pattern="{{ numberPattern }}" [min]="minCapacity" [max]="maxCapacity" />
+              <mat-error *ngIf="capaciteBlocControl.hasError('required')" style="color:red;">La capacité du bloc est requise.</mat-error>
+              <mat-error *ngIf="capaciteBlocControl.hasError('pattern')" style="color:red;">La capacité doit être un nombre.</mat-error>
+              <mat-error *ngIf="capaciteBlocControl.hasError('min')" style="color:red;">La capacité doit être supérieure à 1.</mat-error>
+              <mat-error *ngIf="!validateMaxValue(nouBloc.capaciteBloc)" style="color:red;">La capacité doit être inférieure à 500.</mat-error>
+            </mat-form-field>
+
+
+
+
+            <mat-form-field color="accent">
+              <select style="padding-left: 300px" matNativeControl [(ngModel)]="nouBloc.foyer" name="foyer" (ngModelChange)="onFoyerSelected($event)" required>
+                <option value="" selected></option>
+                <option *ngFor="let foyer of foyers" [ngValue]="foyer">{{ foyer.nomFoyer }}</option>
+              </select>
+              <mat-error *ngIf="modifierBlocForm.controls['foyer'].hasError('required')" style="color:red;">Veuillez sélectionner un foyer.</mat-error>
+            </mat-form-field>
+
+            <div *ngIf="nouBloc.foyer">
+              <p>Foyer sélectionnée : {{ nouBloc.foyer.nomFoyer }}</p>
+            </div>
+
+            <div style="padding-left: 25%">
+              <button class="custom-btn btn-8" mat-button (click)="onNoClick()"><span><b>Annuler</b></span></button>
+              <button class="custom-btn btn-8" mat-stroked-button color="accent" type="button" [disabled]="modifierBlocForm.invalid" (click)="updateBloc()"><span><b>Modifier</b></span></button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </ng-container>
+
+  <ng-template #addBloc>
+    <div fxFlex="3.5rem" fxLayoutAlign="start center">
+      <span class="smr-caption--lg">
+        <h1><b><u style="padding-left: 220px;color:#6c43a1;">Ajouter Bloc</u></b></h1>
+      </span>
+    </div>
+
+    <div fxFlex="auto" fxFlexAlign="start" fxFill>
+      <br>
+      <br>
+      <form #ajouterBlocForm="ngForm">
+        <div fxLayout="row" fxLayoutAlign="center center" fxFill>
+          <div fxFlex="70" fxFlex.xs="100">
+            <mat-form-field color="accent">
+              <input matInput placeholder="Nom du Bloc" [(ngModel)]="nouvelleBloc.nomBloc" name="nomBloc" aria-label="Nom du Bloc" required />
+              <mat-error *ngIf="ajouterBlocForm.controls['nomBloc'].hasError('required')" style="color:red;">Le nom du bloc est requis.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field color="accent">
+              <input matInput placeholder="Capacité du Bloc" [(ngModel)]="nouvelleBloc.capaciteBloc" name="capaciteBloc" aria-label="Capacité du Bloc" required />
+              <mat-error *ngIf="ajouterBlocForm.controls['capaciteBloc'].hasError('required')" style="color:red;">La capacité du bloc est requise.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field color="accent">
+              <input matInput placeholder="Nom du Foyer" [(ngModel)]="nouvelleBloc.foyer.nomFoyer" name="nomFoyer" aria-label="Nom du Foyer" required />
+              <mat-error *ngIf="ajouterBlocForm.controls['nomFoyer'].hasError('required')" style="color:red;">Le nom du foyer est requis.</mat-error>
+            </mat-form-field>
+
+            <div style="padding-left: 25%">
+              <button class="custom-btn btn-8" mat-button (click)="onNoClick()"><span><b>Annuler</b></span></button>
+              <button class="custom-btn btn-8" mat-stroked-button color="accent" type="button" [disabled]="ajouterBlocForm.invalid" (click)="ajouterBloc()"><span><b>Ajouter</b></span></button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+</div>

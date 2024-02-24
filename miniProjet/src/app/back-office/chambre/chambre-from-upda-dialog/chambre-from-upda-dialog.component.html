@@ -1,0 +1,42 @@
+<div class="chambreForm-container">
+  <div class="chambre-form-wrapper">
+    <h2>Modifier La Chambre</h2>
+    <form #chambreForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label >Numéro de Chambre:</label>
+
+        <input type="text" id="idChambre" name="idChambre" [(ngModel)]="chambre.idChambre" (blur)="fetchChambreDataById(chambre.idChambre)"  >
+
+
+      </div>
+      <div class="form-group">
+        <label for="numeroChambre">Numéro de Chambre:</label>
+
+        <input type="text" id="numeroChambre" name="numeroChambre" [(ngModel)]="chambre.numeroChambre" required minlength="1" maxlength="4">
+        <div *ngIf="chambreForm.controls['numeroChambre']?.invalid && (chambreForm.controls['numeroChambre']?.dirty || chambreForm.controls['numeroChambre']?.touched)">
+          <small *ngIf="chambreForm.controls['numeroChambre']?.errors?.['required']">Numéro de Chambre est requis.</small>
+          <small *ngIf="chambreForm.controls['numeroChambre']?.errors?.['minlength']">Numéro de Chambre doit avoir au moins 3 caractères.</small>
+          <small *ngIf="chambreForm.controls['numeroChambre']?.errors?.['maxlength']">Numéro de Chambre ne peut pas dépasser 10 caractères.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="typeChambre">Type de Chambre:</label>
+        <select type="text" id="typeChambre" name="typeChambre" [(ngModel)]="chambre.typeC" required>
+          <option value="SIMPLE">SIMPLE</option>
+          <option value="DOUBLE">DOUBLE</option>
+          <option value="TRIPLE">TRIPLE</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="idBloc">Bloc:</label>
+
+        <select type="text" id="idBloc" name="nomBloc" [(ngModel)]="chambre.bloc.idBloc" >
+          <option *ngFor="let blocName of blocIds" [value]="blocName">{{ blocName }}</option>
+        </select></div>
+      <button type="submit" [disabled]="!chambreForm.valid">Ajouter</button>
+
+    </form>
+  </div>
+</div>
+

@@ -1,0 +1,70 @@
+
+ <!-- Table Product -->
+ <div class="row">
+    <div class="col-12">
+      <div class="card card-default">
+        <div class="card-header">
+          <h2> Liste des etudiants</h2>
+          <div class="dropdown">
+            <div>
+              <button mat-raised-button class="custom-btn btn-8"(click)="openDialogg()" >
+                <span><b>Ajouter</b></span>
+              </button>
+
+          </div>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+
+
+  <table  id="productsTable" class="table table-hover table-product" style="width:100%">
+
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>CIN</th>
+        <th>Ecole</th>
+        <th>Date de naissance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let etudiant of etudiants">
+        <td>{{ etudiant.nomEt }}</td>
+        <td>{{ etudiant.prenom }}</td>
+        <td>{{ etudiant.cin }}</td>
+        <td>{{ etudiant.ecole }}</td>
+        <td>{{ etudiant.dateNaissance }}</td>
+
+        <td>
+          <div class="dropdown">
+            <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+
+              <a class="dropdown-item" style="color: rgb(100, 100, 100) ;" href="#"><b>Afficher</b> <span class="mdi mdi-eye" style="padding-left: 37%;"></span></a>
+              <a class="dropdown-item" style="color: rgb(16, 132, 14) ;" (click)="openDialoggg()"><b>Modifier</b><span class="mdi mdi-grease-pencil" style="padding-left: 37%;"></span></a>
+              <a class="dropdown-item" style="color: rgb(226, 20, 20) ;" (click)="deleteEtudiant(etudiant.idEtudiant)" ><b>Supprimer</b><span class="mdi mdi-delete" style="padding-left: 23%;"></span></a>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+
+    </tbody>
+  </table>
+
+
+  </div>
+  </div>
+  </div>
+
+  </div>
+

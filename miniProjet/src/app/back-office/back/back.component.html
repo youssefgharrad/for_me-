@@ -1,0 +1,232 @@
+<script>
+    NProgress.configure({ showSpinner: false });
+    NProgress.start();
+  </script>
+
+
+
+
+
+  <!-- ====================================
+  ——— WRAPPER
+  ===================================== -->
+  <div class="wrapper">
+
+
+      <!-- ====================================
+        ——— LEFT SIDEBAR WITH OUT FOOTER
+      ===================================== -->
+      <aside class="left-sidebar sidebar-dark" id="left-sidebar">
+        <div id="sidebar" class="sidebar sidebar-with-footer">
+          <!-- Aplication Brand -->
+          <div class="app-brand">
+            <a href="/index.html">
+              <img src="assets/back/images/logo.png" alt="Mono">
+              <span class="brand-name">MONO </span>
+            </a>
+          </div>
+          <!-- begin sidebar scrollbar -->
+          <div class="sidebar-left" data-simplebar style="height: 100%;">
+            <!-- sidebar menu -->
+            <ul class="nav sidebar-inner" id="sidebar-menu">
+
+                <li class="section-title">
+                  Les gestions
+                </li>
+
+
+
+
+
+                <li
+                 >
+                  <a class="sidenav-item-link" routerLink="universite">
+                    <i class="mdi mdi-home-variant"></i>
+                    <span class="nav-text">Universite</span>
+                  </a>
+                </li>
+
+
+
+
+
+                <li
+                 >
+                  <a class="sidenav-item-link" routerLink="foyer">
+                    <i class="mdi mdi-domain"></i>
+                    <span class="nav-text">Foyer</span>
+                  </a>
+                </li>
+
+
+
+
+
+                <li
+                 >
+                  <a class="sidenav-item-link" routerLink="bloc">
+                    <i class="mdi mdi-city-variant"></i>
+                    <span class="nav-text">Bloc</span>
+                  </a>
+                </li>
+
+
+
+
+
+                <li
+                 >
+                  <a class="sidenav-item-link" routerLink="chambre">
+                    <i class="mdi mdi-exit-run"></i>
+                    <span class="nav-text">Chambre</span>
+                  </a>
+                </li>
+
+
+
+                <li
+                 >
+                  <a class="sidenav-item-link" routerLink="reservation">
+                    <i class="mdi mdi-calendar-check"></i>
+                    <span class="nav-text">Réservation</span>
+                  </a>
+                </li>
+
+                <li
+                 >
+                  <a class="sidenav-item-link" routerLink="Etudiant">
+                    <i class="mdi mdi-account"></i>
+                    <span class="nav-text">Etudiant</span>
+                  </a>
+                </li>
+
+
+
+
+
+
+
+            </ul>
+
+          </div>
+
+          <div class="sidebar-footer">
+            <div class="sidebar-footer-content">
+              <ul class="d-flex">
+                <li>
+                  <a href="user-account-settings.html" data-toggle="tooltip" title="Profile settings"><i class="mdi mdi-settings"></i></a></li>
+                <li>
+                  <a href="#" data-toggle="tooltip" title="No chat messages"><i class="mdi mdi-chat-processing"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+
+    <!-- ====================================
+    ——— PAGE WRAPPER
+    ===================================== -->
+    <div class="page-wrapper">
+
+        <!-- Header -->
+        <header class="main-header" id="header">
+          <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+            <!-- Sidebar toggle button -->
+            <button id="sidebar-toggler" class="sidebar-toggle">
+              <span class="sr-only">Toggle navigation</span>
+            </button>
+
+            <span class="page-title">dashboard</span>
+
+            <div class="navbar-right ">
+
+              <!-- search form -->
+              <div class="search-form">
+
+                <ul class="dropdown-menu dropdown-menu-search">
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html">Morbi leo risus</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html">Dapibus ac facilisis in</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html">Porta ac consectetur ac</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html">Vestibulum at eros</a>
+                  </li>
+
+                </ul>
+
+              </div>
+
+              <ul class="nav navbar-nav">
+                <!-- Offcanvas -->
+                <li class="custom-dropdown">
+                  <a class="offcanvas-toggler active custom-dropdown-toggler" data-offcanvas="contact-off" href="javascript:" >
+                    <i class="mdi mdi-contacts icon"></i>
+                  </a>
+                </li>
+                <li class="custom-dropdown">
+                  <button class="notify-toggler custom-dropdown-toggler">
+                    <i class="mdi mdi-bell-outline icon"></i>
+                    <span class="badge badge-xs rounded-circle">21</span>
+                  </button>
+                  <div class="dropdown-notify">
+
+                    <header>
+                      <div class="nav nav-underline" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="all-tabs" data-toggle="tab" href="#all" role="tab" aria-controls="nav-home"
+                          aria-selected="true">All (5)</a>
+                        <a class="nav-item nav-link" id="message-tab" data-toggle="tab" href="#message" role="tab" aria-controls="nav-profile"
+                          aria-selected="false">Msgs (4)</a>
+                        <a class="nav-item nav-link" id="other-tab" data-toggle="tab" href="#other" role="tab" aria-controls="nav-contact"
+                          aria-selected="false">Others (3)</a>
+                      </div>
+                    </header>
+                  </div>
+                </li>
+                <!-- User Account -->
+                <li class="dropdown user-menu">
+
+                    <img src="assets/back/images/user/user-xs-01.jpg" class="user-image rounded-circle" alt="User Image" />
+                    <span class="d-none d-lg-inline-block">John Doe</span>
+
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+
+        </header>
+        <!-- main here -->
+
+        <router-outlet></router-outlet>
+    </div>
+
+
+  </div>
+
+
+
+<footer class="footer mt-auto">
+  <div class="copyright bg-white">
+    <p>
+      &copy; <span id="copy-year"></span> Copyright Mono Dashboard Bootstrap Template by <a class="text-primary" href="#" target="_blank" >CyberMaster</a>.
+    </p>
+  </div>
+  <script>
+    var d = new Date();
+    var year = d.getFullYear();
+    document.getElementById("copy-year").innerHTML = year;
+  </script>
+</footer>
+
+
+
+
+
