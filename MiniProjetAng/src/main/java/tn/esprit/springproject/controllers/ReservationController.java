@@ -89,10 +89,4 @@ public class ReservationController {
         Chambre listReservations = reservationService.findChambreByReservationId(reservationId);
         return listReservations;
     }
-
-    @GetMapping("/findRoomsByType")
-    public List<Chambre> findRoomsByType(){
-        List<Chambre> listReservations = reservationService.findRoomsByType();
-        return listReservations;
-    }
 }

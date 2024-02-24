@@ -18,14 +18,7 @@
       ===================================== -->
       <aside class="left-sidebar sidebar-dark" id="left-sidebar">
         <div id="sidebar" class="sidebar sidebar-with-footer">
-          <!-- Aplication Brand -->
-          <div class="app-brand">
-            <a href="/index.html">
-              <img src="assets/back/images/logo.png" alt="Mono">
-              <span class="brand-name">MONO </span>
-            </a>
-          </div>
-          <!-- begin sidebar scrollbar -->
+
           <div class="sidebar-left" data-simplebar style="height: 100%;">
             <!-- sidebar menu -->
             <ul class="nav sidebar-inner" id="sidebar-menu">
@@ -38,8 +31,7 @@
 
 
 
-                <li
-                 >
+                <li>
                   <a class="sidenav-item-link" routerLink="universite">
                     <i class="mdi mdi-home-variant"></i>
                     <span class="nav-text">Universite</span>
@@ -94,7 +86,7 @@
 
                 <li
                  >
-                  <a class="sidenav-item-link" routerLink="Etudiant">
+                  <a class="sidenav-item-link" href="calendar.html">
                     <i class="mdi mdi-account"></i>
                     <span class="nav-text">Etudiant</span>
                   </a>
@@ -131,78 +123,6 @@
     <div class="page-wrapper">
 
         <!-- Header -->
-        <header class="main-header" id="header">
-          <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
-            <!-- Sidebar toggle button -->
-            <button id="sidebar-toggler" class="sidebar-toggle">
-              <span class="sr-only">Toggle navigation</span>
-            </button>
-
-            <span class="page-title">dashboard</span>
-
-            <div class="navbar-right ">
-
-              <!-- search form -->
-              <div class="search-form">
-
-                <ul class="dropdown-menu dropdown-menu-search">
-
-                  <li class="nav-item">
-                    <a class="nav-link" href="index.html">Morbi leo risus</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="index.html">Dapibus ac facilisis in</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="index.html">Porta ac consectetur ac</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="index.html">Vestibulum at eros</a>
-                  </li>
-
-                </ul>
-
-              </div>
-
-              <ul class="nav navbar-nav">
-                <!-- Offcanvas -->
-                <li class="custom-dropdown">
-                  <a class="offcanvas-toggler active custom-dropdown-toggler" data-offcanvas="contact-off" href="javascript:" >
-                    <i class="mdi mdi-contacts icon"></i>
-                  </a>
-                </li>
-                <li class="custom-dropdown">
-                  <button class="notify-toggler custom-dropdown-toggler">
-                    <i class="mdi mdi-bell-outline icon"></i>
-                    <span class="badge badge-xs rounded-circle">21</span>
-                  </button>
-                  <div class="dropdown-notify">
-
-                    <header>
-                      <div class="nav nav-underline" id="nav-tab" role="tablist">
-                        <a class="nav-item nav-link active" id="all-tabs" data-toggle="tab" href="#all" role="tab" aria-controls="nav-home"
-                          aria-selected="true">All (5)</a>
-                        <a class="nav-item nav-link" id="message-tab" data-toggle="tab" href="#message" role="tab" aria-controls="nav-profile"
-                          aria-selected="false">Msgs (4)</a>
-                        <a class="nav-item nav-link" id="other-tab" data-toggle="tab" href="#other" role="tab" aria-controls="nav-contact"
-                          aria-selected="false">Others (3)</a>
-                      </div>
-                    </header>
-                  </div>
-                </li>
-                <!-- User Account -->
-                <li class="dropdown user-menu">
-
-                    <img src="assets/back/images/user/user-xs-01.jpg" class="user-image rounded-circle" alt="User Image" />
-                    <span class="d-none d-lg-inline-block">John Doe</span>
-
-                </li>
-              </ul>
-            </div>
-          </nav>
-
-
-        </header>
         <!-- main here -->
 
         <router-outlet></router-outlet>

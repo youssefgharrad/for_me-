@@ -12,19 +12,23 @@ import {Bloc} from "../../../model/Bloc";
   templateUrl: './chambre-from-upda-dialog.component.html',
   styleUrls: ['./chambre-from-upda-dialog.component.css']
 })
-  export class ChambreFromUpdaDialogComponent implements OnInit {
+export class ChambreFromUpdaDialogComponent implements OnInit {
   chambre: Chambre = new Chambre();
   blocId:String[] = [];
   blocIds: number[] = [];
 
+  public dialogRef: MatDialogRef<ChambreFromUpdaDialogComponent>;
 
-  constructor(public dialogRef: MatDialogRef<ChambreFromUpdaDialogComponent>, private chambreservice: ChambreService,private blocService: BlocService) { }
+  constructor(dialogRef: MatDialogRef<ChambreFromUpdaDialogComponent>, private chambreservice: ChambreService,private blocService: BlocService) {
+
+    this.dialogRef = dialogRef;
+
+  }
   ngOnInit():void{
     this.chambre.bloc=new Bloc();
     this.loadBlocIds();
   }
   onSubmit() {
-    // Call your service's addChambre method when the form is submitted
     this.chambreservice.updateChambre(this.chambre,this.chambre.idChambre,this.chambre.bloc.idBloc).subscribe(
       (result) => {
         console.log('Chambre added successfully:', result);
@@ -61,5 +65,9 @@ import {Bloc} from "../../../model/Bloc";
       }
     );
   }
-}
 
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}

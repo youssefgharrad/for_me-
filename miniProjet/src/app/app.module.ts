@@ -3,19 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FrontComponent } from './front-office/front/front.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DetailsComponent } from './frontOffice/details/details.component';
-import { ListComponent } from './list/list.component';
-import { ReservationComponent } from './frontOffice/reservation/reservation.component';
+import {DialogbComponent} from "./back-office/bloc/dialogb/dialogb.component";
+import {BackOfficeModule} from "./back-office/back-office.module";
+import {RouterModule} from "@angular/router";
+import {LoginComponentt} from "./login/login.component";
+import {RegisterComponentt} from "./register/register.component";
+import {HomeComponent} from "./home/home.component";
+import {ProfileComponentt} from "./profile/profile.component";
+import {BoardAdminComponent} from "./board-admin/board-admin.component";
+import {BoardModeratorComponent} from "./board-moderator/board-moderator.component";
+import {BoardUserComponent} from "./board-user/board-user.component";
 import {FormsModule} from "@angular/forms";
-import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FrontComponent,
+    LoginComponentt,
+    RegisterComponentt,
+    HomeComponent,
+    ProfileComponentt,
+    BoardAdminComponent,
+    BoardModeratorComponent,
+    BoardUserComponent
 
 
 
@@ -25,9 +36,10 @@ import { ToastrModule } from 'ngx-toastr';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    RouterModule,
     FormsModule,
-    BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot()
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

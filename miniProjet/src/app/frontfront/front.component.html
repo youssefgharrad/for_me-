@@ -1,0 +1,75 @@
+<header class="header-top bg-grey justify-content-center">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-2 col-md-4 text-center d-none d-lg-block">
+        <a class="navbar-brand " href="index.html">
+          <img src="assets/front/images/logo.png" alt="" class="img-fluid">
+        </a>
+      </div>
+
+      <div class="col-lg-8 col-md-12">
+        <nav class="navbar navbar-expand-lg navigation-2 navigation">
+          <a class="navbar-brand text-uppercase d-lg-none" href="#">
+            <img src="assets/front/images/logo.png" alt="" class="img-fluid">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="ti-menu"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul id="menu" class="menu navbar-nav mx-auto">
+
+
+              <li style="padding-left: 200px" class="nav-item"><a routerLink="list" class="nav-link" >Home</a></li>
+
+              <li class="nav-item"><a routerLink="list" class="nav-link" >Universities</a></li>
+
+
+              <li class="nav-item"><a routerLink="test" class="nav-link">Contact</a></li>
+
+
+              <li  *ngIf="!isLoggedIn" style="padding-left: 180px"><a routerLink="/register"><button class="custom-btn btn-8"> Register </button></a></li>
+              <li *ngIf="!isLoggedIn" ><a routerLink="/login" class="nav-link"><button class="custom-btn btn-8"> Login </button></a></li>
+              <li class="dropdown user-menu" *ngIf="isLoggedIn">
+
+                <a href="/profile" class="nav-link dropdown user-menu pl-8" routerLink="/profile">{{ username }}</a>
+              </li>
+              <li class="nav-item" *ngIf="isLoggedIn">
+                <button href class="btn btn-outline-warning text-black" (click)="logout()">LogOut</button>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<section class=" mt-4">
+  <img src="assets/front/images/etsac+image-640w.webp" alt=" " class="w-100 img-fluid">
+</section>
+
+<router-outlet></router-outlet>
+
+
+<section class="footer-2 section-padding gray-bg pb-5">
+  <div class="container">
+    <div class="row justify-content-center">
+
+    </div>
+
+    <div class="footer-btm mt-5 pt-4 border-top">
+      <div class="row">
+
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="copyright text-center ">
+            @ copyright all reserved to <a href="https://themefisher.com/">themefisher.com</a>-2019
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

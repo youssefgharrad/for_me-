@@ -37,7 +37,6 @@ public class ChambreServiceImpl implements ChambreService {
         chambre.setBloc(bloc);
         newChambre.setNumeroChambre(chambre.getNumeroChambre());
         newChambre.setTypeC(chambre.getTypeC());
-        newChambre.setTotale_cap(3);
         return chambreRepository.save(chambre);
     }
     @Override

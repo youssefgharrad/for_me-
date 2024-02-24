@@ -126,9 +126,4 @@ public class ReservationServiceImpl implements  ReservationService {
         return reservationRepository.findChambreByReservationId(idReservation) ;
     }
 
-
-    public List<Chambre> findRoomsByType() {
-        return chambreRepository.findByTypeCAndTotCapaciteNotZero();
-    }
-
 }

@@ -1,35 +1,42 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FrontComponent } from './front/front.component';
-import { FrontOfficeRoutingModule } from './front-office-routing.module';
-import { DetailsComponent } from '../frontOffice/details/details.component';
-import { FormsModule } from '@angular/forms';
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-import { ReservationComponent } from '../frontOffice/reservation/reservation.component';
-import { AppRoutingModule } from '../app-routing.module';
-import { ListComponent } from '../list/list.component';
-import { ArticleComponent } from '../article/article.component';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { ToastrModule } from 'ngx-toastr';
+
+import {UniversiteComponent} from "../back-office/universite/universite.component";
+import {BlocComponent} from "../back-office/bloc/bloc.component";
+import {FoyerComponent} from "../back-office/foyer/foyer.component";
+import {DialogComponent} from "../back-office/foyer/dialog/dialog.component";
+import {DialogbComponent} from "../back-office/bloc/dialogb/dialogb.component";
+import {ListblocdialogComponent} from "../back-office/foyer/listblocdialog/listblocdialog.component";
+import {UniversitedialogComponent} from "../back-office/universite/universitedialog/universitedialog.component";
+import {
+  UniversiteupdadialogComponent
+} from "../back-office/universite/universiteupdadialog/universiteupdadialog.component";
+import {ChambreComponent} from "../back-office/chambre/chambre.component";
+import {ChambreFromDialogComponent} from "../back-office/chambre/chambre-from-dialog/chambre-from-dialog.component";
+import {
+  ChambreFromUpdaDialogComponent
+} from "../back-office/chambre/chambre-from-upda-dialog/chambre-from-upda-dialog.component";
+import {ReservationComponent} from "../back-office/reservation/reservation.component";
+import {ReservationdialogComponent} from "../back-office/reservation/reservationdialog/reservationdialog.component";
+import {ReactiveFormsModule} from "@angular/forms";
+import {RouterModule} from "@angular/router";
+import {FrontComponent} from "../frontfront/front.component";
+
 
 
 @NgModule({
   declarations: [
-   // FrontComponent,
-   DetailsComponent,
-   ReservationComponent,
-   ListComponent,
-   ArticleComponent
+    FrontComponent
 
   ],
   imports: [
     CommonModule,
-    FrontOfficeRoutingModule,
-    FormsModule,
-    LeafletModule,
+    ReactiveFormsModule,
+    RouterModule
+  ],
+  exports: [
 
 
-
-  ]
+  ],
 })
 export class FrontOfficeModule { }

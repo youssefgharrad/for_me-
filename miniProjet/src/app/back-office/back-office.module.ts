@@ -28,9 +28,6 @@ import {ChambreFromDialogComponent} from "./chambre/chambre-from-dialog/chambre-
 import {ChambreFromUpdaDialogComponent} from "./chambre/chambre-from-upda-dialog/chambre-from-upda-dialog.component";
 import {ReservationComponent} from "./reservation/reservation.component";
 import {ReservationdialogComponent} from "./reservation/reservationdialog/reservationdialog.component";
-import { EtudiantupdatedialogComponent } from './etudiant/etudiantupdatedialog/etudiantupdatedialog.component';
-import { EtudiantdialogComponent } from './etudiant/etudiantdialog/etudiantdialog.component';
-import { EtudiantComponent } from './etudiant/etudiant.component';
 
 
 
@@ -52,10 +49,7 @@ import { EtudiantComponent } from './etudiant/etudiant.component';
     ChambreFromDialogComponent,
     ChambreFromUpdaDialogComponent,
     ReservationComponent,
-    ReservationdialogComponent,
-    EtudiantdialogComponent,
-    EtudiantupdatedialogComponent
-
+    ReservationdialogComponent
 
 
 
@@ -68,9 +62,7 @@ import { EtudiantComponent } from './etudiant/etudiant.component';
     UniversiteupdadialogComponent,
     ChambreFromDialogComponent,
     ChambreFromUpdaDialogComponent,
-    ReservationdialogComponent,
-    EtudiantdialogComponent,
-    EtudiantupdatedialogComponent
+    ReservationdialogComponent
 
 
 
@@ -90,7 +82,6 @@ import { EtudiantComponent } from './etudiant/etudiant.component';
     MatAutocompleteModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    EtudiantComponent,
 
   ],
   exports: [
@@ -106,10 +97,7 @@ import { EtudiantComponent } from './etudiant/etudiant.component';
     ChambreFromDialogComponent,
     ChambreFromUpdaDialogComponent,
     ReservationComponent,
-    ReservationdialogComponent,
-    EtudiantComponent,
-    EtudiantdialogComponent,
-    EtudiantupdatedialogComponent
+    ReservationdialogComponent
 
   ],
 })

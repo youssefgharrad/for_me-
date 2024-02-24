@@ -31,7 +31,6 @@ public class FoyerController {
     public Foyer getFoyerById(@PathVariable("foyerId") long foyerId){
         return foyerService.getFoyerById(foyerId);
     }
-
     @PostMapping("/addFoyer")
     public Foyer addFoyer(@RequestBody Foyer f){
         Foyer foyer = foyerService.addFoyer(f);

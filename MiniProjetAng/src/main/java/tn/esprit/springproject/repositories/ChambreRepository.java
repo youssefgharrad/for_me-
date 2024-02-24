@@ -19,8 +19,4 @@ public interface ChambreRepository extends CrudRepository<Chambre,Long> {
     @Query("SELECT c FROM Chambre c WHERE c.typeC = :typeC AND c.totale_cap > 0 ORDER BY c.idChambre ASC LIMIT 1")
     Chambre findAvailableChambreByTypeC(@Param("typeC") TypeChambre typeC);
 
-
-    @Query("SELECT c FROM Chambre c WHERE c.totale_cap != 0")
-    List<Chambre> findByTypeCAndTotCapaciteNotZero();
-
 }

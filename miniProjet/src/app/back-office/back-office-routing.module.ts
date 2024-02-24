@@ -6,7 +6,6 @@ import {FoyerComponent} from "./foyer/foyer.component";
 import {BlocComponent} from "./bloc/bloc.component";
 import {ChambreComponent} from "./chambre/chambre.component";
 import {ReservationComponent} from "./reservation/reservation.component";
-import { EtudiantComponent } from './etudiant/etudiant.component';
 
 
 
@@ -18,13 +17,6 @@ const routes: Routes = [
           {path:"bloc", component:BlocComponent},
             {path:"chambre", component:ChambreComponent},
               {path:"reservation", component:ReservationComponent},
-                {path:"Etudiant",component:EtudiantComponent},
-
-
-
-
-
-
 
       ]}
 

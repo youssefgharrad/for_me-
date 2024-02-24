@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Reservation} from "../model/Reservation";
-import {Chambre, TypeChambre} from "../model/Chambre";
+import {TypeChambre} from "../model/Chambre";
 
 @Injectable({
   providedIn: 'root'
@@ -61,10 +61,6 @@ export class ReservationService {
 
   addReservation3(res: Reservation, idChambre:TypeChambre, cinEtudiant:number): Observable<any> {
     return this._http.post<any>(`${this.apiServer}reservation/addReservation22/${idChambre}/${cinEtudiant}`, res);
-  }
-
-  findRoomsByType(): Observable<Chambre[]> {
-    return this._http.get<Chambre[]>(`${this.apiServer}reservation/findRoomsByType`, this.httpOptions);
   }
 
 }

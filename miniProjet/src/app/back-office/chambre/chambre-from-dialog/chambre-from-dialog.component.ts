@@ -35,7 +35,6 @@ export class ChambreFromDialogComponent  implements OnInit {
   }
 
   onSubmit() {
-    //this.chambre.totale_cap=3 ;
     // Call your service's addChambre method when the form is submitted
     this.chambreservice.addChambre(this.chambre,this.chambre.bloc.idBloc).subscribe(
       (result) => {

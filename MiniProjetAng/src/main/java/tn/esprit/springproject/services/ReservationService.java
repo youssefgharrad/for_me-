@@ -30,6 +30,5 @@ public interface ReservationService {
     Chambre findChambreByReservationId(long idReservation);
 
     public void addReservationWithChambre(Reservation reservation, TypeChambre typeC, Long idEtudiant);
-    public List<Chambre> findRoomsByType() ;
 
 }
